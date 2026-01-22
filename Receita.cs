@@ -1,36 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace ProjetoFichaTecnica
 {
-    internal class Receita
+    public class Receita
     {
-        // Nome da receita (ex: "Brigadeiro de Festa")
-        public string Nome {  get; set; }
+        public string Nome { get; set; }
+        public List<ItemReceita> ListaDeItens { get; set; }
 
-        // A LISTA MÁGICA
-        // Aqui dizemos: "Esta propriedade guarda uma LISTA de ItemReceita"
-        // O "new List..." no final serve para criar a lista vazia assim que a receita nasce.
-        public List<ItemReceita> ListaDeItens { get; set; } = new List<ItemReceita>();
+        // Propriedades de Custo
+        public decimal TempoDePreparo { get; set; }
+        public decimal ValorDaMinhaHora { get; set; }
+        public decimal GastosDiversos { get; set; }
 
-        // MÉTODO: Calcular Custo Total
-        public decimal CalcularCustoTotal()
+        // --- NOVIDADE AQUI ---
+        public int Rendimento { get; set; } // Ex: Rende 20 brigadeiros
+
+        public Receita()
         {
-            decimal total = 0;
-
-            //O LAÇO DE REPETIÇÃO(FOREACH)
-            // Tradução: "Para cada 'item' que existir na 'ListaDeItens'..."
-            foreach (var item in ListaDeItens)
-            {
-                total += item.CalcularCustoDestaPorcao();
-            }
-
-            return total;
-
+            ListaDeItens = new List<ItemReceita>();
         }
 
+        public decimal CalcularCustoTotal()
+        {
+            decimal custoIngredientes = 0;
+            foreach (var item in ListaDeItens)
+            {
+                custoIngredientes += item.CalcularCustoDestaPorcao();
+            }
+
+            decimal custoMaoDeObra = TempoDePreparo * ValorDaMinhaHora;
+
+            return custoIngredientes + custoMaoDeObra + GastosDiversos;
+        }
     }
 }

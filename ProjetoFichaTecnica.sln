@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjetoFichaTecnica", "ProjetoFichaTecnica.csproj", "{8BEF3B7A-6ABD-7689-69E7-00007B399DDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FichaTecnicaApp", "..\FichaTecnicaApp\FichaTecnicaApp.csproj", "{53098687-B663-43DD-BFBF-BF05CEE8DC52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BEF3B7A-6ABD-7689-69E7-00007B399DDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BEF3B7A-6ABD-7689-69E7-00007B399DDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BEF3B7A-6ABD-7689-69E7-00007B399DDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BEF3B7A-6ABD-7689-69E7-00007B399DDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53098687-B663-43DD-BFBF-BF05CEE8DC52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53098687-B663-43DD-BFBF-BF05CEE8DC52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53098687-B663-43DD-BFBF-BF05CEE8DC52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53098687-B663-43DD-BFBF-BF05CEE8DC52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2A561F8F-34AD-4A4F-A5AC-99608FC4A739}
+	EndGlobalSection
+EndGlobal

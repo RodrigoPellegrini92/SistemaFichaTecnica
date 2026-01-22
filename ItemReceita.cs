@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoFichaTecnica
 {
-    internal class ItemReceita
+    public class ItemReceita
     {
         // PROPRIEDADES
 

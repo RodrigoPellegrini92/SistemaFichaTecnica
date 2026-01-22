@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetoFichaTecnica
 {
-    internal class Ingrediente
+    public class Ingrediente
     {
         //Propriedades
         public string Nome {  get; set; }
