@@ -17,29 +17,39 @@ namespace FichaTecnicaTelas
         {
             try
             {
+                // 1. Validar Nome
                 string nome = txtNomeIngrediente.Text;
                 if (string.IsNullOrEmpty(nome)) return;
 
-                decimal preco = Convert.ToDecimal(txtPreco.Text);
-                double peso = Convert.ToDouble(txtPeso.Text);
+                // 2. Pegar números da tela
+                decimal precoPacote = Convert.ToDecimal(txtPreco.Text);
+                double tamanhoPacote = Convert.ToDouble(txtPesoEmbalagem.Text); // Ex: 1000g ou 12 ovos
+                double quantidadeUsada = Convert.ToDouble(txtUsoReceita.Text);  // Ex: 200g ou 3 ovos
 
-                Ingrediente novoIngrediente = new Ingrediente(nome, preco, peso);
-                ItemReceita item = new ItemReceita(novoIngrediente, peso); // Assume uso total por enquanto
+                // 3. Criar os objetos (A mágica acontece aqui)
+                Ingrediente novoIngrediente = new Ingrediente(nome, precoPacote, tamanhoPacote);
+                ItemReceita item = new ItemReceita(novoIngrediente, quantidadeUsada);
 
+                // 4. Adicionar na memória
                 minhaReceita.ListaDeItens.Add(item);
 
-                lblResumo.Text = $"✅ {nome} adicionado!\n" +
-                                 $"Total de Itens: {minhaReceita.ListaDeItens.Count}\n" +
-                                 $"💰 Custo Total: R$ {minhaReceita.CalcularCustoTotal():F2}";
+                // 5. Atualizar texto na tela
+                // Mostra o custo daquele item específico
+                decimal custoDoItem = item.CalcularCustoDoItem();
+                lblLista.Text += $"• {nome}: Usou {quantidadeUsada} (Custo: R$ {custoDoItem:F2})\n";
 
+                lblResumo.Text = $"💰 Custo Total da Receita: R$ {minhaReceita.CalcularCustoTotal():F2}";
+
+                // 6. Limpar campos
                 txtNomeIngrediente.Text = "";
                 txtPreco.Text = "";
-                txtPeso.Text = "";
+                txtPesoEmbalagem.Text = "";
+                txtUsoReceita.Text = "";
                 txtNomeIngrediente.Focus();
             }
             catch (Exception ex)
             {
-                DisplayAlert("Erro", "Verifique os números digitados.", "OK");
+                DisplayAlert("Erro", "Verifique se digitou apenas números nos campos de valor.", "OK");
             }
         }
     }
